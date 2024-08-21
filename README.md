@@ -2,6 +2,9 @@
 
 This is a Spring Boot Java application with a console interface designed to manage a university system. The application consists of departments and lectors, where each lector can work in more than one department and holds a specific degree (assistant, associate professor, professor). All the data is stored in a relational database, and various commands can be executed via the console to interact with the system.
 
+
+The application has been thoroughly tested using **Spring Testing** and **Mockito** to ensure the reliability and correctness of its features. These tests cover various scenarios, including handling edge cases and exceptions, to guarantee that the system behaves as expected under different conditions.
+
 ## Features
 
 - **Head of Department Query:** Retrieve the head of a specific department.
