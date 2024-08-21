@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: BotsCrew Test Task
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: botscrew
+    password: botscrew
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    database: postgresql

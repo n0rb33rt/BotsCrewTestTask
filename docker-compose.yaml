@@ -1,0 +1,38 @@
+services:
+  postgres:
+    container_name: botscrew-db
+    image: postgres
+    environment:
+      POSTGRES_USER: botscrew
+      POSTGRES_PASSWORD: botscrew
+    volumes:
+      - botscrew-db:/var/lib/postgresql/data
+    networks:
+      - botscrew-network
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "8081:80"
+    networks:
+      - botscrew-network
+    restart: unless-stopped
+
+
+networks:
+  botscrew-network:
+    driver: bridge
+
+volumes:
+  botscrew-db:
+  pgadmin:
